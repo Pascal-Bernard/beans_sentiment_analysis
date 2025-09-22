@@ -224,6 +224,13 @@ We'll use standard machine learning metrics to assess performance:
 
 <b>Confusion Matrix</b>: A table that shows the number of correct and incorrect predictions for each sentiment category.
 
+<br>
+
+The compete evaluator code named `evaluate_models.py` can be found <a href="https://github.com/Pascal-Bernard/beans_sentiment_analysis/blob/main/analyze_sentiment.py">here</a>.
+
+NOTe : We dont recommand to run again because of the API limitation that will make it crash or slow it down endlessly. I ran it after many splits in the process.
+
+
 ```python
 RESULTS :
 
