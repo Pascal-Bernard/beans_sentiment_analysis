@@ -202,3 +202,24 @@ You should get this expected output :
   ]
 }
 ```
+
+<br>
+
+How to evaluate the Classifier Performance ?
+--------------------------------------------
+
+It's key to evaluate the type of classifier. in order to find out which model is "the best," we need to evaluate them on a labeled dataset and compute standard classification metrics. Here’s a plan to do just that using the optional training dataset.
+
+Since the `synthetic_crypto_sentiment_training_1.5k.csv` file contains pre-labeled data, we can treat it as a test set to measure how well each model's predictions align with the provided ground truth. We'll run both models on this dataset and compare their outputs to the label column in the csv.
+
+We'll use standard machine learning metrics to assess performance:
+
+<b>Accuracy</b>: The percentage of posts the model classified correctly. While easy to understand, it can be misleading on imbalanced datasets.
+
+<b>Precision</b>: Of all the posts the model labeled as "bullish," what percentage were actually "bullish"?
+
+<b>Recall</b>: Of all the posts that were actually "bullish," what percentage did the model correctly identify?
+
+<b>F1-Score</b>: The harmonic mean of precision and recall. It's a great single metric for a model's overall performance.
+
+<b>Confusion Matrix</b>: A table that shows the number of correct and incorrect predictions for each sentiment category.
