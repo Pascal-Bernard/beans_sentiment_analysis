@@ -369,3 +369,9 @@ weighted avg       1.00      1.00      1.00       300
  [  0   0  99]]
  ```
 
+CONCLUSION
+----------
+
+The flawless performance of our custom models, from both Scikit-learn and PyTorch, is a definitive indication of extreme overfitting. This outcome is not a sign of a perfect model, but rather a direct result of two obvious key factors:  
+- First, the synthetic nature of the data means it lacks the complexity and unpredictability of real-world text, allowing the models to simply memorize the simple patterns rather than learning to generalize. 
+- Second, the total number of data points is far too small to provide enough variation for a model to learn from, compounding the memorization problem. With these two combined limitations, it's impossible to build a performimg and generalizable model, and our perfect scores are the proof.
