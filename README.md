@@ -286,3 +286,18 @@ BERTweet Confusion Matrix:
  [ 77 329 110]
  [  0 193 302]]
 ```
+
+<br>
+
+BREAKDOWN OF THE RESULTS & ANALYSIS
+-----------------------------------
+
+Based on the data returned by the evaluator we can conclude that :
+
+The <b>BERTweet</b> model is the clear winner with an accuracy of 56%. VADER comes in second at 47%, and the DistilBERT model performed the worst with an accuracy of 41%.
+
+<b>BERTweet:</b> This model shows the most balanced and effective performance. It has the highest precision and recall for both 'bearish' and 'bullish' sentiments, meaning it's the most reliable at correctly identifying these categories. The confusion matrix shows that while it does confuse some 'bearish' and 'bullish' posts, it handles the 'neutral' category much better than the other models.
+
+<b>VADER:</b> VADER's performance is mediocre. Its overall accuracy and F1-score are significantly lower than BERTweet's. The confusion matrix reveals a major weakness: it struggles to distinguish between 'bearish' and 'bullish' sentiments, leading to a high number of false positives in both categories. It also misclassifies a lot of bullish and bearish posts as neutral.
+
+<b>DistilBERT:</b> This model performed the poorest. Its extremely low recall (0.02) and F1-score (0.03) for the 'neutral' category are a significant red flag. The confusion matrix shows that the model is classifying a large number of 'bullish' and 'bearish' posts as 'neutral' (445 and 298, respectively), but it's not correctly identifying posts that are actually neutral. This skewed performance makes it an unreliable choice for this specific task.
