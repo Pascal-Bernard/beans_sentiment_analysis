@@ -8,12 +8,17 @@ import re
 # Initialize the VADER sentiment analyzer
 analyzer = SentimentIntensityAnalyzer()
 
-# NOTE: The credentials are now hardcoded directly into the script.
+
+# ----------------------------- NOTE ----------------------------------------- #
+
+# The credentials are now hardcoded directly into the script.
 # This is for demonstration purposes and is not recommended for production.
-# IMPORTANT : I credentials are working but temporary - They will expired on September 28th 2025
-client_id="KHYcZCDLYa6lyHROYTXphQ"
-client_secret="X5VxvVDXBlFc9QEUnAH49bZO8faBrg"
-user_agent="pgbernard_test"
+# I have shared some temprary working credential in the email that you can use for testing
+client_id=""
+client_secret=""
+user_agent=""
+
+# ---------------------------------------------------------------------------- #
 
 # Create the Reddit instance by passing the credentials directly
 reddit = praw.Reddit(
