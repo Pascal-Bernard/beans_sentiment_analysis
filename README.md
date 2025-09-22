@@ -301,3 +301,71 @@ The <b>BERTweet</b> model is the clear winner with an accuracy of 56%. VADER com
 <b>VADER:</b> VADER's performance is mediocre. Its overall accuracy and F1-score are significantly lower than BERTweet's. The confusion matrix reveals a major weakness: it struggles to distinguish between 'bearish' and 'bullish' sentiments, leading to a high number of false positives in both categories. It also misclassifies a lot of bullish and bearish posts as neutral.
 
 <b>DistilBERT:</b> This model performed the poorest. Its extremely low recall (0.02) and F1-score (0.03) for the 'neutral' category are a significant red flag. The confusion matrix shows that the model is classifying a large number of 'bullish' and 'bearish' posts as 'neutral' (445 and 298, respectively), but it's not correctly identifying posts that are actually neutral. This skewed performance makes it an unreliable choice for this specific task.
+
+
+Next step ?
+-----------
+
+Given the previous results that not bad - but not amazing either - its worth trying to build our own ML classifier.
+
+### 1. Scikit learn and `TfidfVectorizer`
+
+Using TfidfVectorizer from Scikit-learn is quite relevqnt because it allows us to create a model specifically tailored to the language in our dataset. Unlike pre-trained models that have a fixed vocabulary and may misinterpret crypto jargon, TF-IDF calculates the importance of each word based on its frequency within our specific collection of text. This process turns the raw text into a set of numerical features that highlight the most relevant terms, enabling a custom model to learn the unique patterns and nuances of the crypto community's language directly from our data.
+
+You can find the code here : <a href="https://github.com/Pascal-Bernard/blob/main/custom_model_using_sklearn.py">here</a> and here is the result :
+
+Training on 1200 samples, testing on 300 samples.
+Training the Logistic Regression model...
+Evaluating the model...
+
+
+----------------- Custom Model Classification Report: ----------------
+              precision    recall  f1-score   support
+
+     bearish       1.00      1.00      1.00        99
+     bullish       1.00      1.00      1.00        98
+     neutral       1.00      1.00      1.00       103
+
+    accuracy                           1.00       300
+   macro avg       1.00      1.00      1.00       300
+weighted avg       1.00      1.00      1.00       300
+
+
+----------------- Custom Model Confusion Matrix: ----------------
+[[ 99   0   0]
+ [  0  98   0]
+ [  0   0 103]]
+
+These results are a classic ML case of "good news, bad news". The good news is that the 100% accuracy and perfect confusion matrix show the model successfully learned the patterns in your synthetic data. However, this is also the bad news, as it is a strong sign of overfitting. The model has likely memorized the specific examples rather than learning how to generalize, meaning it would perform poorly on more varied, real-world text... 
+
+Given the perfect - but therefore overfitted - the results from our first run, it's would relevant to try building another to confirm the overfittig. If by any luck we get a slightly different output it would provide valuable insight into the model's stability and its ability to generalize, or at least how badly it's memorizing the data. This will help us confirm if the overfitting is a one-time fluke or a consistent behavior of the model on this specific dataset.
+
+NOTE : This second test is just for the sake of the test, because it is already quite clear why we have this overfitting..
+
+### 2. PyTorch
+
+PyTorch is an excellent choice for our 2nd model because it's a powerful deep learning framework that provides flexibility to build a custom neural net from the ground up. It allows us to have complete control over the model's architecture and training process, etc.. which is key for tackling the potential nuances of our data,  and moving beyond simple pattern memorization..
+
+
+You can find the code here : <a href="https://github.com/Pascal-Bernard/blob/main/custom_model_using_torch.py">here</a> and here is the result :
+
+```python
+----------------- Custom PyTorch Model Classification Report: ----------------
+              precision    recall  f1-score   support
+
+     bullish       1.00      1.00      1.00        98
+     neutral       1.00      1.00      1.00       103
+     bearish       1.00      1.00      1.00        99
+
+    accuracy                           1.00       300
+   macro avg       1.00      1.00      1.00       300
+weighted avg       1.00      1.00      1.00       300
+
+
+----------------- Custom PyTorch Model Confusion Matrix: ----------------
+[[ 98   0   0]
+ [  0 103   0]
+ [  0   0  99]]
+ ```
+
+ 
