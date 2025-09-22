@@ -78,7 +78,9 @@ This is the core function for sentiment analysis. It takes a text string and ret
 
 ```python
 def get_sentiment(text):
-    """Analyzes the sentiment of a given text."""
+    """
+    Analyzes the sentiment of a given text
+    """
     result = classifier(text)[0]
     
     label = result['label']
@@ -98,7 +100,9 @@ def analyze_sentiment(
     token, window, min_confidence, 
     filename='data/synthetic_crypto_sentiment_1.4k.csv'
     ):
-    """Analyzes sentiment for a given crypto token."""
+    """
+    Analyzes sentiment for a given crypto token
+    """
     try:
         df = pd.read_csv(filename)
     except FileNotFoundError:
@@ -118,11 +122,55 @@ The final section sets up the command-line interface, allowing you to run the sc
 
 ```python
 if __name__ == "__main__":
+
     parser = argparse.ArgumentParser(...)
-    parser.add_argument("--token", required=True, ...)
+    parser.add_argument("--token", "--window", required=True, ...)
     
     args = parser.parse_args()
     
     analysis_result = analyze_sentiment(args.token.upper(), ...)
     print(json.dumps(analysis_result, indent=2))
 ```
+
+
+#### How to Run the Script
+--------------------------
+
+This project is a command-line tool, and getting it set up is a straightforward process.
+
+
+### 1. Download the Repository
+First, you'll need a copy of the project files on your local machine. You can do this in two ways:
+
+
+Download as a ZIP: On the main GitHub page for the repository, click the green Code button and select Download ZIP. This will download all the files in a single compressed folder. Unzip the folder to a location of your choice.
+
+
+Clone the Repository (Recommended): If you have Git installed, you can clone the repository directly from your terminal. This is the preferred method as it makes it easy to pull future updates.
+
+`
+git clone [https://github.com/Pascal-Bernard/beans_sentiment_analysis.git](https://github.com/Pascal-Bernard/beans_sentiment_analysis.git)
+`
+
+
+### 2. Install Dependencies
+The script requires a few Python libraries to run, which are listed in the requirements.txt file. You can install all of them at once using pip:
+
+`
+pip install -r requirements.txt
+`
+
+### 3. Run the Analysis
+
+Once the dependencies are installed, you can run the sentiment analysis script from your terminal.
+Navigate to the project directory in your terminal:
+
+`cd beans_sentiment_analysis`
+
+Then, execute the script by specifying the crypto token you want to analyze. The script defaults to VADER, but you can choose between other models using the --model flag.
+
+Example: Analyzing Bitcoin (BTC) using the VADER model using SOL (Solane and a toie windows of 240 hours)
+
+`python analyze_sentiment.py --token SOL --window 2400h --min-confidence 0.50`
+
+NOTE : the default value of 0.75 can be too high for some models to provide an output. That's why I suggest to set at 0.50

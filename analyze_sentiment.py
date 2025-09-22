@@ -101,7 +101,7 @@ if __name__ == "__main__":
     parser.add_argument("--token", required=True, help="The crypto token to analyze (e.g., SOL, DOGE, PEPE).")
     parser.add_argument("--window", required=True, help="The time window for analysis (e.g., 1h, 24h, 7d).")
     parser.add_argument("--min-confidence", type=float, default=0.75, help="Minimum confidence threshold for a post to be included (0.0 to 1.0).")
-    parser.add_argument("--dataset", default="synthetic_crypto_sentiment_1.4k.csv", help="The path to the dataset CSV file.")
+    parser.add_argument("--dataset", default="data/synthetic_crypto_sentiment_1.4k.csv", help="The path to the dataset CSV file.")
     
     args = parser.parse_args()
     
