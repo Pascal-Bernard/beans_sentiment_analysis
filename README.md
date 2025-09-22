@@ -30,3 +30,19 @@ To establish a performance baseline, the following three models will be evaluate
     
 
 The evaluation results will guide the decision on whether to develop a custom model for improved accuracy.
+
+
+Model verview and why we shortlisted them
+------------------------------------------
+
+### VADER (Valence Aware Dictionary and and sEntiment Reasoner)
+
+VADER is a rule-based model specifically tuned for social media sentiment. It's highly relevant because it doesn't require training data and is effective at understanding common internet slang and emojis, making it a quick and lightweight baseline for initial evaluation.
+
+### DistilBERT
+
+DistilBERT is a smaller, faster version of BERT, making it efficient while retaining strong performance. Its relevance lies in its ability to capture complex language context and nuances, offering a powerful, generalized comparison against VADER's rule-based approach.
+
+### BERTweet
+
+BERTweet is a variant of the BERT model trained exclusively on a massive dataset of tweets. This specialization makes it highly relevant for analyzing crypto social media posts, as its training data closely matches the language, style, and context of your project's target text.
