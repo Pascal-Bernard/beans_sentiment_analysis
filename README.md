@@ -3,7 +3,7 @@ Crypto Sentiment Analysis Tool
 
 ### Project Objective
 
-This project aims to create a command-line tool in **Python** to analyze sentiment in crypto-related social media posts. The tool leverages Python's extensive ecosystem for natural language processing (NLP) and data analysis to provide actionable insights into market sentiment.
+This project aims to create a command-line tool in **Python** to analyze sentiment in crypto-related social media posts. I decided to use Python in order to leverage Python's extensive ecosystem for NLP (natural language processing) and data analysis to provide actionable insights into market sentiment.
 
 ### AI Usage Disclosure
 
@@ -162,11 +162,11 @@ git clone [https://github.com/Pascal-Bernard/beans_sentiment_analysis.git](https
 
 
 ### 2. Install Dependencies
-The script requires a few Python libraries to run, which are listed in the requirements.txt file. You can install all of them at once using pip:
+The script requires a few Python libraries to run, that are listed in the requirements.txt file. You can install all of them at once using pip:
 
-`
+```python
 pip install -r requirements.txt
-`
+```
 
 ### 3. Run the Analysis
 
@@ -182,7 +182,7 @@ Example: Analyzing Bitcoin (BTC) using the VADER model using SOL (Solana) and a 
 `python analyze_sentiment.py --token SOL --window 2400h --min-confidence 0.50`
 
 NOTE : 
-- The default value of 0.75 can be too high for some models to provide an output. That's why I suggest to set at 0.50
+- The default value of 0.75 can be too high for some models to provide an output. That's why after testing I suggest to set the value at 0.50.
 - Extend the window value to : 2400h in order to cover the maximum of data from the sample
 
 
@@ -231,7 +231,7 @@ It's key to evaluate the type of classifier. in order to find out which model is
 
 Since the `synthetic_crypto_sentiment_training_1.5k.csv` file contains pre-labeled data, we can treat it as a test set to measure how well each model's predictions align with the provided ground truth. We'll run both models on this dataset and compare their outputs to the label column in the csv.
 
-We'll use standard machine learning metrics to assess performance:
+We'll use standard ML metrics to assess performance:
 
 <b>Accuracy</b>: The percentage of posts the model classified correctly. While easy to understand, it can be misleading on imbalanced datasets.
 
@@ -247,7 +247,7 @@ We'll use standard machine learning metrics to assess performance:
 
 The compete evaluator code named `evaluate_models.py` can be found <a href="https://github.com/Pascal-Bernard/beans_sentiment_analysis/blob/main/evaluate_models.py">here</a>.
 
-NOTe : We dont recommand to run again because of the API limitation that will make it crash or slow it down endlessly. I ran it after many splits in the process.
+NOTe : We dont recommand to run the evalution again because of the API limitation that will make it crash or slow it down endlessly. I ran it after many splits in the process.
 
 
 ```python
@@ -338,7 +338,7 @@ Training the Logistic Regression model...
 Evaluating the model...
 
 ```python
------------------ Custom Model Classification Report: ----------------
+----------------- Custom SKLearn Model Classification Report: ----------------
               precision    recall  f1-score   support
 
      bearish       1.00      1.00      1.00        99
@@ -350,15 +350,15 @@ Evaluating the model...
 weighted avg       1.00      1.00      1.00       300
 
 
------------------ Custom Model Confusion Matrix: ----------------
+----------------- Custom SKLearn Model Confusion Matrix: ----------------
 [[ 99   0   0]
  [  0  98   0]
  [  0   0 103]]
  ```
 
-These results are a classic ML case of "good news, bad news". The good news is that the 100% accuracy and perfect confusion matrix show the model successfully learned the patterns in your synthetic data. However, this is also the bad news, as it is a strong sign of overfitting. The model has likely memorized the specific examples rather than learning how to generalize, meaning it would perform poorly on more varied, real-world text... 
+These results are a classic ML case of "good news, bad news". The good news is that the 100% accuracy with a perfect confusion matrix that shows the model successfully learned the patterns in your synthetic data... However, this is also the bad news, as it is a strong and obvious sign of overfitting. The model has likely memorized the specific examples rather than learning how to generalize, meaning it would perform poorly on more varied, real-world text... 
 
-Given the perfect - but therefore overfitted - the results from our first run, it's would relevant to try building another to confirm the overfittig. If by any luck we get a slightly different output it would provide valuable insight into the model's stability and its ability to generalize, or at least how badly it's memorizing the data. This will help us confirm if the overfitting is a one-time fluke or a consistent behavior of the model on this specific dataset.
+Given the perfect - but therefore overfitted - the results from our first run, it's would relevant to try building another model to confirm the overfitting. If, by any luck, we get a slightly different output it would provide valuable insight into the model's stability and its ability to generalize, or at least how badly it's memorizing the data. This will help us confirm if the overfitting is a one-time fluke or a consistent behavior of the model on this specific dataset.
 
 NOTE : This second test is just for the sake of the test, because it is already quite clear why we have this overfitting..
 
