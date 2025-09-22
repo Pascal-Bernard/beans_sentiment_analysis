@@ -9,7 +9,8 @@ This project aims to create a command-line tool in **Python** to analyze sentime
 
 I have only utilized Anthropic Claude.ai for the following :
 - Wording completion, grammar, and spelling corrections.
-- Code completion
+- Code completion.
+
 The entire process of brainstorming, reasoning, machine learning approach, and option selection was prototyped and developed without any use of AI tools.
 
 ### Datasets
