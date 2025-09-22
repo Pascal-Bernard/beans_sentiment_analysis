@@ -31,8 +31,9 @@ To establish a performance baseline, the following three models will be evaluate
 
 The evaluation results will guide the decision on whether to develop a custom model for improved accuracy.
 
+<br>
 
-Model verview and why we shortlisted them
+Model overview and why we shortlisted them
 ------------------------------------------
 
 ### VADER (Valence Aware Dictionary and and sEntiment Reasoner)
