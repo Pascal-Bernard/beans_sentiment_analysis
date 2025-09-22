@@ -133,8 +133,8 @@ if __name__ == "__main__":
 ```
 
 
-#### How to Run the Script
---------------------------
+How to run the script
+---------------------
 
 This project is a command-line tool, and getting it set up is a straightforward process.
 
@@ -173,4 +173,32 @@ Example: Analyzing Bitcoin (BTC) using the VADER model using SOL (Solane and a t
 
 `python analyze_sentiment.py --token SOL --window 2400h --min-confidence 0.50`
 
-NOTE : the default value of 0.75 can be too high for some models to provide an output. That's why I suggest to set at 0.50
+NOTE : 
+- The default value of 0.75 can be too high for some models to provide an output. That's why I suggest to set at 0.50
+- Extend the window value to : 2400h in order to cover the maximum of data from the sample
+
+
+You should get this expected output : 
+
+```bash
+(base) pgb@pgbs-MacBook-Air beans_sentiment_analysis % python analyze_sentiment.py --token SOL --window 2400h --min-confidence 0.50
+{
+  "token": "SOL",
+  "bullish": 1,
+  "neutral": 0,
+  "bearish": 1,
+  "bullish_ratio": 0.5,
+  "top_posts": [
+    {
+      "text": "$DOGE to the moon \ud83d\ude80 but $SOL is dumping hard.",
+      "label": "bearish",
+      "confidence": 0.55
+    },
+    {
+      "text": "$SOL looks stable, nothing crazy.",
+      "label": "bullish",
+      "confidence": 0.5
+    }
+  ]
+}
+```
