@@ -47,3 +47,44 @@ DistilBERT is a smaller, faster version of BERT, making it efficient while retai
 ### BERTweet
 
 BERTweet is a variant of the BERT model trained exclusively on a massive dataset of tweets. This specialization makes it highly relevant for analyzing crypto social media posts, as its training data closely matches the language, style, and context of your project's target text.
+
+
+<br>
+
+I'll be using the provided Python script as a **base template** for testing all three sentiment models: VADER, DistilBERT, and BERTweet. This template is a flexible command-line tool for crypto sentiment analysis.
+
+### Template Structure
+
+The template is organized into key sections for clarity and modularity.
+
+#### Imports and Initialization
+
+The script begins by importing all necessary libraries and initializing the sentiment model. For example, the pipeline for a Hugging Face model is created once at the start to ensure efficiency.
+
+Python
+
+Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   import argparse  import pandas as pd  ...  from transformers import pipeline  # Initialize the sentiment analysis pipeline using the BERTweet model.  classifier = pipeline("sentiment-analysis", model="finiteautomata/bertweet-base-sentiment-analysis")   `
+
+#### The get\_sentiment() Function
+
+This is the core function for sentiment analysis. It takes a text string and returns the sentiment label and a confidence score. This is the only section that will change when we switch between models.
+
+Python
+
+Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   def get_sentiment(text):      """Analyzes the sentiment of a given text."""      result = classifier(text)[0]      label = result['label']      confidence = result['score']      ... # Logic to map labels and return sentiment      return {"label": label, "confidence": confidence}   `
+
+#### The analyze\_sentiment() Function
+
+This main analysis engine handles all data processing. It reads the dataset, filters posts by a specific token and time window, applies the get\_sentiment() function to each post, and calculates the final sentiment counts.
+
+Python
+
+Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   def analyze_sentiment(token, window, min_confidence, filename='data/synthetic_crypto_sentiment_1.4k.csv'):      """Analyzes sentiment for a given crypto token."""      try:          df = pd.read_csv(filename)      except FileNotFoundError:          return {"error": f"Dataset file '{filename}' not found."}      ... # Data filtering logic      df_filtered['sentiment'] = df_filtered['text'].apply(get_sentiment)      ... # Sentiment counting and result formatting   `
+
+#### Main Block
+
+The final section sets up the command-line interface, allowing you to run the script with different parameters directly from the terminal.
+
+Python
+
+Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   if __name__ == "__main__":      parser = argparse.ArgumentParser(...)      parser.add_argument("--token", required=True, ...)      args = parser.parse_args()      analysis_result = analyze_sentiment(args.token.upper(), ...)      print(json.dumps(analysis_result, indent=2))   `
