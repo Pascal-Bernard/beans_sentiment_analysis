@@ -5,6 +5,13 @@ Crypto Sentiment Analysis Tool
 
 This project aims to create a command-line tool in **Python** to analyze sentiment in crypto-related social media posts. The tool leverages Python's extensive ecosystem for natural language processing (NLP) and data analysis to provide actionable insights into market sentiment.
 
+### AI Usage Disclosure
+
+I have only utilized Anthropic Claude.ai for the following :
+- Wording completion, grammar, and spelling corrections.
+- Code completion
+The entire process of brainstorming, reasoning, machine learning approach, and option selection was prototyped and developed without any use of AI tools.
+
 ### Datasets
 
 Two primary datasets are used in this project:

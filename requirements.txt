@@ -264,6 +264,8 @@ platformdirs @ file:///Users/builder/cbouss/perseverance-python-buildout/croot/p
 plotly @ file:///private/var/folders/nz/j6p8yfhx1mv_0grj5xl4650h0000gp/T/abs_763albhi7w/croot/plotly_1718136945704/work
 pluggy @ file:///Users/builder/cbouss/perseverance-python-buildout/croot/pluggy_1699237243543/work
 ply @ file:///Users/builder/cbouss/perseverance-python-buildout/croot/ply_1699237976675/work
+praw==7.8.1
+prawcore==2.4.0
 prometheus-client @ file:///Users/builder/cbouss/perseverance-python-buildout/croot/prometheus_client_1699242791845/work
 prompt-toolkit @ file:///private/var/folders/k1/30mswbxs7r1g6zwn8y4fyt500000gp/T/abs_c63v4kqjzr/croot/prompt-toolkit_1704404354115/work
 Protego @ file:///tmp/build/80754af9/protego_1598657180827/work
@@ -582,6 +584,7 @@ uc-micro-py @ file:///Users/builder/cbouss/perseverance-python-buildout/croot/uc
 ujson @ file:///private/var/folders/nz/j6p8yfhx1mv_0grj5xl4650h0000gp/T/abs_dexxju769y/croot/ujson_1717597527341/work
 unicodedata2 @ file:///private/var/folders/k1/30mswbxs7r1g6zwn8y4fyt500000gp/T/abs_a3epjto7gs/croot/unicodedata2_1713212955584/work
 Unidecode @ file:///tmp/build/80754af9/unidecode_1614712377438/work
+update-checker==0.18.0
 urllib3 @ file:///private/var/folders/nz/j6p8yfhx1mv_0grj5xl4650h0000gp/T/abs_cao7_u9937/croot/urllib3_1718912649114/work
 uvicorn==0.34.2
 vaderSentiment==3.3.2
