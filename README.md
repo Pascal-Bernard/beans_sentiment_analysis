@@ -312,7 +312,7 @@ Given the previous results that not bad - but not amazing either - its worth try
 
 Using TfidfVectorizer from Scikit-learn is quite relevqnt because it allows us to create a model specifically tailored to the language in our dataset. Unlike pre-trained models that have a fixed vocabulary and may misinterpret crypto jargon, TF-IDF calculates the importance of each word based on its frequency within our specific collection of text. This process turns the raw text into a set of numerical features that highlight the most relevant terms, enabling a custom model to learn the unique patterns and nuances of the crypto community's language directly from our data.
 
-You can find the code here : <a href="https://github.com/Pascal-Bernard/blob/main/custom_model_using_sklearn.py">here</a> and here is the result :
+You can find the code here : <a href="https://github.com/Pascal-Bernard/beans_sentiment_analysis/blob/main/custom_model_using_sklearn.py">here</a> and here is the result :
 
 Training on 1200 samples, testing on 300 samples.
 Training the Logistic Regression model...
@@ -348,7 +348,7 @@ NOTE : This second test is just for the sake of the test, because it is already 
 PyTorch is an excellent choice for our 2nd model because it's a powerful deep learning framework that provides flexibility to build a custom neural net from the ground up. It allows us to have complete control over the model's architecture and training process, etc.. which is key for tackling the potential nuances of our data,  and moving beyond simple pattern memorization..
 
 
-You can find the code here : <a href="https://github.com/Pascal-Bernard/blob/main/custom_model_using_torch.py">here</a> and here is the result :
+You can find the code here : <a href="https://github.com/Pascal-Bernard/beans_sentiment_analysis/blob/main/custom_model_using_torch.py">here</a> and here is the result :
 
 ```python
 ----------------- Custom PyTorch Model Classification Report: ----------------
