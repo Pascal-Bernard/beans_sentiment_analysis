@@ -223,3 +223,59 @@ We'll use standard machine learning metrics to assess performance:
 <b>F1-Score</b>: The harmonic mean of precision and recall. It's a great single metric for a model's overall performance.
 
 <b>Confusion Matrix</b>: A table that shows the number of correct and incorrect predictions for each sentiment category.
+
+```python
+RESULTS :
+
+----------------- VADER Classification Report: ----------------
+
+              precision    recall  f1-score   support
+
+     bearish       0.65      0.40      0.50       495
+     bullish       0.49      0.39      0.44       489
+     neutral       0.38      0.59      0.47       516
+
+    accuracy                           0.47      1500
+   macro avg       0.51      0.46      0.47      1500
+weighted avg       0.51      0.47      0.47      1500
+
+VADER Confusion Matrix:
+[[193 296   0]
+ [ 99 307 110]
+ [ 99 196 200]]
+
+-------------- DistilBERT Classification Report: --------------
+
+              precision    recall  f1-score   support
+
+     bearish       0.35      0.82      0.50       495
+     bullish       0.62      0.39      0.48       489
+     neutral       0.21      0.02      0.03       516
+
+    accuracy                           0.41      1500
+   macro avg       0.40      0.41      0.34      1500
+weighted avg       0.39      0.41      0.33      1500
+
+DistilBERT Confusion Matrix:
+[[191   0 298]
+ [ 62   9 445]
+ [ 54  33 408]]
+
+--------------- BERTweet Classification Report: ---------------
+
+BERTweet Classification Report:
+              precision    recall  f1-score   support
+
+     bearish       0.73      0.61      0.67       495
+     bullish       0.73      0.44      0.55       489
+     neutral       0.41      0.64      0.50       516
+
+    accuracy                           0.56      1500
+   macro avg       0.63      0.56      0.57      1500
+weighted avg       0.62      0.56      0.57      1500
+
+BERTweet Confusion Matrix:
+[[213 276   0]
+ [ 77 329 110]
+ [  0 193 302]]
+```
