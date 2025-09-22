@@ -61,17 +61,33 @@ The template is organized into key sections for clarity and modularity.
 
 The script begins by importing all necessary libraries and initializing the sentiment model. For example, the pipeline for a Hugging Face model is created once at the start to ensure efficiency.
 
-Python
+```python
+import argparse
+import pandas as pd
+...
+from transformers import pipeline
 
-Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   import argparse  import pandas as pd  ...  from transformers import pipeline  # Initialize the sentiment analysis pipeline using the BERTweet model.  classifier = pipeline("sentiment-analysis", model="finiteautomata/bertweet-base-sentiment-analysis")   `
+# Initialize the sentiment analysis pipeline using the BERTweet model.
+classifier = pipeline("sentiment-analysis", model="finiteautomata/bertweet-base-sentiment-analysis")
+```
 
-#### The get\_sentiment() Function
+The `get_sentiment()` Function
+
 
 This is the core function for sentiment analysis. It takes a text string and returns the sentiment label and a confidence score. This is the only section that will change when we switch between models.
 
-Python
-
-Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   def get_sentiment(text):      """Analyzes the sentiment of a given text."""      result = classifier(text)[0]      label = result['label']      confidence = result['score']      ... # Logic to map labels and return sentiment      return {"label": label, "confidence": confidence}   `
+```python
+def get_sentiment(text):
+    """Analyzes the sentiment of a given text."""
+    result = classifier(text)[0]
+    
+    label = result['label']
+    confidence = result['score']
+    
+    ... # Logic to map labels and return sentiment
+    
+    return {"label": label, "confidence": confidence}
+```
 
 #### The analyze\_sentiment() Function
 
