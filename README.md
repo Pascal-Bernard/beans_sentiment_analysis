@@ -308,7 +308,7 @@ Next step ?
 
 Given the previous results that not bad - but not amazing either - its worth trying to build our own ML classifier.
 
-### 1. Scikit learn and `TfidfVectorizer`
+1. Scikit learn and `TfidfVectorizer`
 
 Using TfidfVectorizer from Scikit-learn is quite relevqnt because it allows us to create a model specifically tailored to the language in our dataset. Unlike pre-trained models that have a fixed vocabulary and may misinterpret crypto jargon, TF-IDF calculates the importance of each word based on its frequency within our specific collection of text. This process turns the raw text into a set of numerical features that highlight the most relevant terms, enabling a custom model to learn the unique patterns and nuances of the crypto community's language directly from our data.
 
@@ -318,7 +318,7 @@ Training on 1200 samples, testing on 300 samples.
 Training the Logistic Regression model...
 Evaluating the model...
 
-
+```python
 ----------------- Custom Model Classification Report: ----------------
               precision    recall  f1-score   support
 
@@ -335,6 +335,7 @@ weighted avg       1.00      1.00      1.00       300
 [[ 99   0   0]
  [  0  98   0]
  [  0   0 103]]
+ ```
 
 These results are a classic ML case of "good news, bad news". The good news is that the 100% accuracy and perfect confusion matrix show the model successfully learned the patterns in your synthetic data. However, this is also the bad news, as it is a strong sign of overfitting. The model has likely memorized the specific examples rather than learning how to generalize, meaning it would perform poorly on more varied, real-world text... 
 
@@ -342,7 +343,7 @@ Given the perfect - but therefore overfitted - the results from our first run, i
 
 NOTE : This second test is just for the sake of the test, because it is already quite clear why we have this overfitting..
 
-### 2. PyTorch
+2. PyTorch
 
 PyTorch is an excellent choice for our 2nd model because it's a powerful deep learning framework that provides flexibility to build a custom neural net from the ground up. It allows us to have complete control over the model's architecture and training process, etc.. which is key for tackling the potential nuances of our data,  and moving beyond simple pattern memorization..
 
@@ -368,4 +369,3 @@ weighted avg       1.00      1.00      1.00       300
  [  0   0  99]]
  ```
 
- 
