@@ -406,7 +406,7 @@ BONUS
 
 <b>Question : Once you have a working implementation, consider expanding it to work with real-time data using any available API for Reddit or X.</b>
 
-Using the template we preivously built and make it work with real-time data is quite straight.
+Using the template and the model from `analyze_sentiment.py` we preivously built and make it work with real-time data is quite straight forward :
 
 You can see the complete working code using Reddit API real-time data : <a href="https://github.com/Pascal-Bernard/beans_sentiment_analysis/blob/main/analyze_sentiment_reddit.py">here</a>
 
