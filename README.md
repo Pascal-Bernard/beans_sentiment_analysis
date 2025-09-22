@@ -169,7 +169,7 @@ Navigate to the project directory in your terminal:
 
 Then, execute the script by specifying the crypto token you want to analyze. The script defaults to VADER, but you can choose between other models using the --model flag.
 
-Example: Analyzing Bitcoin (BTC) using the VADER model using SOL (Solane and a toie windows of 240 hours)
+Example: Analyzing Bitcoin (BTC) using the VADER model using SOL (Solana) and a time windows of 240 hours :
 
 `python analyze_sentiment.py --token SOL --window 2400h --min-confidence 0.50`
 
@@ -202,6 +202,17 @@ You should get this expected output :
   ]
 }
 ```
+<br>
+
+Example: Analyzing using the BERTweet model using SOLANA and a time windows of 240 hours:
+
+`python analyze_sentiment_v2.py --token SOL --window 2400h --min-confidence 0.50`
+
+<br>
+
+Example: Analyzing using the BERTweet model using SOLANA and a time windows of 240 hours:
+
+`python analyze_sentiment_v3.py --token SOL --window 2400h --min-confidence 0.50`
 
 <br>
 
