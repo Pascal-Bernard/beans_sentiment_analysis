@@ -89,18 +89,40 @@ def get_sentiment(text):
     return {"label": label, "confidence": confidence}
 ```
 
-#### The analyze\_sentiment() Function
+#### The `analyze_sentiment()` function
 
-This main analysis engine handles all data processing. It reads the dataset, filters posts by a specific token and time window, applies the get\_sentiment() function to each post, and calculates the final sentiment counts.
+This main analysis engine handles all data processing. It reads the dataset, filters posts by a specific token and time window, applies the get_sentiment() function to each post, and calculates the final sentiment counts.
 
-Python
+```python
+def analyze_sentiment(
+    token, window, min_confidence, 
+    filename='data/synthetic_crypto_sentiment_1.4k.csv'
+    ):
+    """Analyzes sentiment for a given crypto token."""
+    try:
+        df = pd.read_csv(filename)
+    except FileNotFoundError:
+        return {"error": f"Dataset file '{filename}' not found."}
 
-Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   def analyze_sentiment(token, window, min_confidence, filename='data/synthetic_crypto_sentiment_1.4k.csv'):      """Analyzes sentiment for a given crypto token."""      try:          df = pd.read_csv(filename)      except FileNotFoundError:          return {"error": f"Dataset file '{filename}' not found."}      ... # Data filtering logic      df_filtered['sentiment'] = df_filtered['text'].apply(get_sentiment)      ... # Sentiment counting and result formatting   `
+    ... # Data filtering logic
+    
+    df_filtered['sentiment'] = df_filtered['text'].apply(get_sentiment)
+    
+    ... # Sentiment counting and result formatting
+```
+
 
 #### Main Block
 
 The final section sets up the command-line interface, allowing you to run the script with different parameters directly from the terminal.
 
-Python
-
-Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   if __name__ == "__main__":      parser = argparse.ArgumentParser(...)      parser.add_argument("--token", required=True, ...)      args = parser.parse_args()      analysis_result = analyze_sentiment(args.token.upper(), ...)      print(json.dumps(analysis_result, indent=2))   `
+```python
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser(...)
+    parser.add_argument("--token", required=True, ...)
+    
+    args = parser.parse_args()
+    
+    analysis_result = analyze_sentiment(args.token.upper(), ...)
+    print(json.dumps(analysis_result, indent=2))
+```
