@@ -406,9 +406,13 @@ To run it, you can use this command :
 
 `python analyze_sentiment_reddit.py --token SOL --subreddit solana --limit 50`
 
-NOTE: Important to add the '--subreddit' for Reddit !
+NOTE: 
+- Important to add the '--subreddit' for Reddit !
+- The system can precisaly replicated with any other social API (X, telegram, news feed, etc..)
 
-And the output should be as follows : 
+
+And the output should be as follows :
+
 
 ```python
 (base) pgb@pgbs-MacBook-Air beans_sentiment_analysis % python analyze_sentiment_reddit.py --token SOL --subreddit solana --limit 50
