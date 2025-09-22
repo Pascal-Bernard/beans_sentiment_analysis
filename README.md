@@ -226,7 +226,7 @@ We'll use standard machine learning metrics to assess performance:
 
 <br>
 
-The compete evaluator code named `evaluate_models.py` can be found <a href="https://github.com/Pascal-Bernard/beans_sentiment_analysis/blob/main/analyze_sentiment.py">here</a>.
+The compete evaluator code named `evaluate_models.py` can be found <a href="https://github.com/Pascal-Bernard/beans_sentiment_analysis/blob/main/evaluate_models.py">here</a>.
 
 NOTe : We dont recommand to run again because of the API limitation that will make it crash or slow it down endlessly. I ran it after many splits in the process.
 
