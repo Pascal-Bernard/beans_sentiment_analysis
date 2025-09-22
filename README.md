@@ -386,3 +386,77 @@ CONCLUSION
 The flawless performance of our custom models, from both Scikit-learn and PyTorch, is a definitive indication of extreme overfitting. This outcome is not a sign of a perfect model, but rather a direct result of two obvious key factors:  
 - First, the synthetic nature of the data means it lacks the complexity and unpredictability of real-world text, allowing the models to simply memorize the simple patterns rather than learning to generalize. 
 - Second, the total number of data points is far too small to provide enough variation for a model to learn from, compounding the memorization problem. With these two combined limitations, it's impossible to build a performimg and generalizable model, and our perfect scores are the proof.
+
+
+
+
+<br><br>
+
+
+BONUS
+-----
+
+<b>Question : Once you have a working implementation, consider expanding it to work with real-time data using any available API for Reddit or X.</b>
+
+Using the template we preivously built and make it work with real-time data is quite straight.
+
+You can see the complete working code using Reddit API real-time data : <a href="https://github.com/Pascal-Bernard/beans_sentiment_analysis/blob/main/analyze_sentiment_reddit.py">here</a>
+
+To run it, you can use this command : 
+
+`python analyze_sentiment_reddit.py --token SOL --subreddit solana --limit 50`
+
+NOTE: Important to add the '--subreddit' for Reddit !
+
+And the output should be as follows : 
+
+```python
+(base) pgb@pgbs-MacBook-Air beans_sentiment_analysis % python analyze_sentiment_reddit.py --token SOL --subreddit solana --limit 50
+Fetching posts from r/solana...
+{
+  "token": "SOL",
+  "bullish": 20,
+  "neutral": 0,
+  "bearish": 1,
+  "bullish_ratio": 0.95,
+  "top_posts": [
+    {
+      "text": "It's not a draw. Use the Solana ecosystem while staked. New projects (protocols) then use things like activity and amoun...",
+      "label": "bullish",
+      "confidence": 1.0
+    },
+    {
+      "text": "Depends on if the project dropping wants to include pSOL holders. Up to them. Generally you'll want to stick with the mo...",
+      "label": "bullish",
+      "confidence": 0.99
+    },
+    {
+      "text": "No, that's phantom's LST and phantom charges way too much in fees. I would stick with native staking on good Jito based ...",
+      "label": "bullish",
+      "confidence": 0.99
+    },
+    {
+      "text": "Solana Just Landed 4 Major Wins Today \u2014 Are We Watching It Turn Into a Global Crypto Backbone? Here\u2019s a quick breakdown ...",
+      "label": "bullish",
+      "confidence": 0.98
+    },
+    {
+      "text": "**The Institutional Shift is Real \u2014 Here\u2019s Why This Momentum Could Actually Stick**\n\nGreat breakdown on these developmen...",
+      "label": "bullish",
+      "confidence": 0.98
+    },
+    {
+      "text": "I simply look at the market and different financial indicators. We know the relevance of trad-fi price action and if we ...",
+      "label": "bullish",
+      "confidence": 0.97
+    },
+    {
+      "text": "A paper wallet is really just a way of storing your private key offline. It doesn\u2019t have built-in functionality like a s...",
+      "label": "bullish",
+      "confidence": 0.96
+    },
+    ...
+  ]
+}
+```
+
